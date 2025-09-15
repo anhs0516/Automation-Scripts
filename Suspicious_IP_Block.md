@@ -17,3 +17,38 @@
 2. Threat Intelligence API와 연동하여 평판 조회(VirusTotal, AbuseIPDB)
 3. 위험도가 일정 기준 이상이면 Firewall API 호출하여 정책에 차단 룰 추가
 4. 차단 내역을 Slack/Webex Teams 등으로 알림 전송
+
+
+## 코드 (python)
+
+``` python
+
+import requests
+import json
+import os
+
+
+Virustotal_key = os.getenv("Virustotal_key")
+
+# IP 평판 조회 함수(Threat Intelligence 조회)
+def check_ip_reputation(ip):
+    url = f"https://www.virustotal.com/api/v3/ip_addresses/{ip}"
+    headers = {"x-apikey":Virustotal_key}
+    response = requests.get(url , headers = headers)
+    return response.json()
+
+
+
+
+# 실행
+suspicious_ip = ["123.12.123.11"]
+
+for ip in suspicious_ip:
+    reputation = check_ip_reputation(ip)
+
+
+print(reputation)
+    
+
+
+```
