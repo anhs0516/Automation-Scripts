@@ -27,27 +27,46 @@ import requests
 import json
 import os
 
-
+# env에서 키값 가져오기(외부노출 방지)
 Virustotal_key = os.getenv("Virustotal_key")
+AbuseIPDB_key = os.getenv("AbuseIPDB_key")
 
-# IP 평판 조회 함수(Threat Intelligence 조회)
-def check_ip_reputation(ip):
+# VirusTotal IP 평판 조회 함수
+def Vcheck_ip_reputation(ip):
     url = f"https://www.virustotal.com/api/v3/ip_addresses/{ip}"
     headers = {"x-apikey":Virustotal_key}
     response = requests.get(url , headers = headers)
     return response.json()
 
-
+#AbuseIPDB IP 평판 조회 함수
+def Acheck_ip_reputation(ip):
+    url = f"https://api.abuseipdb.com/api/v2/check?ipAddress={ip}"
+    headers = {"Key": AbuseIPDB_key}
+    response = requests.get(url, headers=headers)
+    return response.json()
 
 
 # 실행
-suspicious_ip = ["123.12.123.11"]
+suspicious_ip = ["103.140.1.71"]
 
 for ip in suspicious_ip:
-    reputation = check_ip_reputation(ip)
+    reputation1 = Vcheck_ip_reputation(ip)
+    reputation2 = Acheck_ip_reputation(ip)
+    
+    virustotal_Score = reputation1["data"]["attributes"]["total_votes"]["malicious"]
+    abuse_Score = reputation2["data"]["abuseConfidenceScore"]
+    
+    
+    if virustotal_Score > 50 or abuse_Score > 50:
+        print("악성")
+        
 
 
-print(reputation)
+# IP 평판조회결과 score만 가져오기
+print(f"virustotal:{reputation1["data"]["attributes"]["total_votes"]["malicious"]}")    
+print(f"abuseIPdb:{reputation2["data"]["abuseConfidenceScore"]}")
+
+
     
 
 
