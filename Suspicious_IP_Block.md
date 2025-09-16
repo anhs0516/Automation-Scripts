@@ -9,7 +9,7 @@
 ## 사용 도구
 - Python
 - Firewall REST API
-- Threat Intelligence Feed (AbuseIPDB, VirusTotal)
+- Threat Intelligence Feed (AbuseIPDB, VirusTotal) API
 
 
 ## 스크립트 동작 흐름
