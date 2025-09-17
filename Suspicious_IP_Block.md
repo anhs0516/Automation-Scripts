@@ -8,7 +8,7 @@
 
 ## 사용 도구
 - Python
-- Firewall REST API
+- Firewall REST API, UFW
 - Threat Intelligence Feed (AbuseIPDB, VirusTotal) API
 
 
