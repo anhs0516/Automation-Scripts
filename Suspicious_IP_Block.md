@@ -127,3 +127,8 @@ if __name__ == "__main__":
 
 <img width="868" height="256" alt="image" src="https://github.com/user-attachments/assets/d6c1b063-c0ee-4074-9c68-0c68013a3468" />
 
+
+## 최종 방향성
+
+DDoS 장비, IPS, WAF 등 다양한 보안솔루션을 활용하여 7일간 3회 이상 공격이 들어오거나 금일 3회 이상의 공격을 시도한 IP를 리스트화하여 텍스트파일에 저장하였다가 일정 시간마다 자동화를 진행하여 차단 대응
+
