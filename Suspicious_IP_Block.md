@@ -118,11 +118,12 @@ if __name__ == "__main__":
         print(f"virustotal:{reputation1["data"]["attributes"]["total_votes"]["malicious"]}")    
         print(f"abuseIPdb:{reputation2["data"]["abuseConfidenceScore"]}")
 
-
-
-
-
-    
-
-
 ```
+
+
+## 결과값
+
+공격이 들어온 IP를 VirusTotal, AbuseIPDB API를 이용하여 두 군데의 IP 평판을 조회하여 신뢰도를 높이고 악성 이력이 일정 기준치(ex: 50초과)를 초과하였을 때 UFW(방화벽)에서 차단하는 과정
+
+<img width="868" height="256" alt="image" src="https://github.com/user-attachments/assets/d6c1b063-c0ee-4074-9c68-0c68013a3468" />
+
