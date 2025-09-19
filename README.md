@@ -10,6 +10,7 @@
 ## 🛠️ 기술/도구
 - Python, Bash, PowerShell
 - Splunk, REST API
+- Virustotal, AbuseIPDB API
 - YARA, Sigma 등
 
 ## 📂 주요 내용
