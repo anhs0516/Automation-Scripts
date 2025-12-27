@@ -23,6 +23,8 @@ APT 모의훈련을 통한 임직원 보안 인식 제고 및 탐지 체계 검�
 
 내부 사용자가 열 수 밖에 없는 메일들로 위장 ex) 연말 성과급 지급
 
+<img width="391" height="811" alt="image" src="https://github.com/user-attachments/assets/81898c81-8554-4929-846f-a1548f00933a" />
+
 주의사항
 -
 
@@ -33,3 +35,11 @@ APT 모의훈련을 통한 임직원 보안 인식 제고 및 탐지 체계 검�
 -
 
 - Splunk를 활용한 대시보드로 한 눈에 내부 사용자 대처 레벨 확인 가능
+
+
+
+
+
+사진 출처 
+
+https://www.fnnews.com/news/202512170739271071
