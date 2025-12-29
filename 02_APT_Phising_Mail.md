@@ -76,7 +76,21 @@ ex) content:/report.json content:report
 - Splunk를 활용한 대시보드로 한 눈에 내부 사용자 대처 레벨 확인 가능
 
 
-
+ex) index=NDR msg=20250000_NDR_APT* 
+|sort DATE
+| eval OPEN=case(msg=="20250000_NDR_APT_Email_OPEN","o")
+| eval LinkClick=case(msg=="20250000_NDR_APT_Email_LinkClick","o")
+| eval DataInput=case(msg=="20250000_NDR_APT_Email_DataInput","o")
+| eval realData=case(msg=="20250000_NDR_APT_Email_realData","o")
+| eval report=case(msg=="20250000_NDR_APT_Email_report","o")
+| join type=outer IP [ search index=real_IP 
+| eval IP=mvindex(split(field,","),0)
+| eval NAME=mvindex(split(field,","),1)
+| eval ID=mvindex(split(field,","),2)
+| dedup ID
+| table ID, NAME, IP
+] 
+stats first(DATE) as "열람시간" values(OPEN) as "열람여부" values(LinkClick) as "링크접속" values(DataInput) as "데이터입력" values(realData) as "실제계정입력" values(report) as "해킹메일신고" by ID NAME IP
 
 
 사진 출처 
