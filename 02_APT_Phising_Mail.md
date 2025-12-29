@@ -33,11 +33,41 @@ APT 모의훈련을 통한 임직원 보안 인식 제고 및 탐지 체계 검�
 
 #### 2. NDR 룰 생성
 
-메일 열람 : content: content: %EC%84%B1%EA%B3%BC%EA%B8%89
-링크 클릭 : 
-임의 정보 입력 : 
-실제 계정 정보 입력 : 
-해킹 메일 신고 : 
+메일 열람 
+-
+ex) content:admin@admin.com
+
+메일 열람의 경우 content 내 모의해킹 송신자 주소가 포함될 경우를 탐지하여 이벤트 발생
+
+링크 클릭
+-
+
+ex) content:phishing.php?id=
+
+링크 클릭하여 피싱 사이트 접근의 경우 피싱 사이트 주소 접근 시 이벤트 발생
+
+임의 정보 입력 
+-
+
+ex) content:login_phishing.php?email=
+
+정보 입력의 경우 피싱 사이트 로그인 페이지로 값 입력 시 이벤트 발생
+
+실제 계정 정보 입력
+-
+
+ex) content:aptPhishing.php
+
+실제 계정 정보 입력의 경우 임의 정보 입력과는 아래와 같이 다른 페이지가 뜨게하여 예시 페이지에 접근 시 이벤트 발생
+
+<img width="579" height="749" alt="image" src="https://github.com/user-attachments/assets/1ee37456-f5dd-4de0-8873-a65e8fdd2aa9" />
+
+해킹 메일 신고 
+-
+ex) content:/report.json content:report
+
+해킹 메일 신고의 경우 신고 페이지 접근 및 발송 시 이벤트 발생하여 해킹 메일 신고 시 이벤트 발생
+
 
 
 시각화
